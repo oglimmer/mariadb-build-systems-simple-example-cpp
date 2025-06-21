@@ -8,12 +8,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
     pkg-config \
-    libssl-dev \
-    libopus-dev \
-    libsodium-dev \
-    zlib1g-dev \
-    default-libmysqlclient-dev \
-    git \
+    libmariadb-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory

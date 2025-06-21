@@ -6,8 +6,8 @@ TARGET = maria_test
 SOURCE = main.cpp
 
 # Get MariaDB/MySQL client library flags using pkg-config
-MARIADB_CFLAGS = $(shell pkg-config --cflags mariadb 2>/dev/null || pkg-config --cflags mysqlclient)
-MARIADB_LIBS = $(shell pkg-config --libs mariadb 2>/dev/null || pkg-config --libs mysqlclient)
+MARIADB_CFLAGS = $(shell pkg-config --cflags mariadb 2>/dev/null)
+MARIADB_LIBS = $(shell pkg-config --libs mariadb 2>/dev/null)
 
 # Default target
 all: $(TARGET)

@@ -4,11 +4,12 @@ A C++ project demonstrating MariaDB connectivity using different build systems.
 
 ## Overview
 
-This project contains three different implementations of the same MariaDB connection test, each using a different build system:
+This project contains four different implementations of the same MariaDB connection test, each using a different build system:
 
 - **maria-test.cmake**: Uses CMake for building
 - **maria-test.make**: Uses Make for building  
 - **maria-test.gcc**: Uses direct GCC compilation
+- **maria-test.clang**: Uses Clang compiler
 
 Each implementation connects to a MariaDB database and lists all available databases.
 
@@ -35,6 +36,12 @@ docker compose up --build
 ### GCC Version
 ```bash
 cd maria-test.gcc
+docker compose up --build
+```
+
+### Clang Version
+```bash
+cd maria-test.clang
 docker compose up --build
 ```
 

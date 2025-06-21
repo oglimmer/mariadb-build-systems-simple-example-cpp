@@ -1,14 +1,14 @@
 FROM debian:12
 
-# Set environment to avoid interactive prompts
+# Avoid interactive prompts
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install dependencies
+# Install Clang, pkg-config, and MariaDB dev headers
 RUN apt-get update && apt-get install -y \
-    build-essential \
+    clang \
     pkg-config \
     libmariadb-dev \
-    && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
@@ -16,8 +16,8 @@ WORKDIR /app
 # Copy source code and build script
 COPY . .
 
-# Build using gcc
+# Build using clang (build.sh already invokes clang++)
 RUN ./build.sh
 
-# Set the entrypoint
+# Run the resulting binary
 CMD ["./maria_test"]
