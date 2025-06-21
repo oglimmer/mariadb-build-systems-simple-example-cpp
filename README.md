@@ -10,6 +10,8 @@ This project contains four different implementations of the same MariaDB connect
 - **maria-test.make**: Uses Make for building  
 - **maria-test.gcc**: Uses direct GCC compilation
 - **maria-test.clang**: Uses Clang compiler
+- **maria-test.meson**: Uses meson for building
+- **maria-test.bazel**: Uses bazel for building
 
 Each implementation connects to a MariaDB database and lists all available databases.
 
@@ -43,6 +45,22 @@ docker compose up --build
 ```bash
 cd maria-test.clang
 docker compose up --build
+```
+
+### meson Version
+```bash
+cd maria-test.meson
+docker compose up --build
+```
+
+### bazel Version
+
+The image needs to be build outside of docker compose:
+
+```bash
+cd maria-test.bazel
+docker build --tag maria-test-bazel:latest .
+docker compose up
 ```
 
 ## Database Configuration

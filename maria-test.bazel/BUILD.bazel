@@ -1,0 +1,15 @@
+cc_binary(
+    name = "maria_test",
+    srcs = ["main.cpp"],
+    copts = [
+        "-std=c++20",
+        "-I/usr/include/mariadb",
+        "-I/usr/include/mariadb/mysql",
+    ],
+    linkopts = [
+        "-lmariadb",
+    ],
+    linkstatic = False,
+    visibility = ["//visibility:public"],
+)
+

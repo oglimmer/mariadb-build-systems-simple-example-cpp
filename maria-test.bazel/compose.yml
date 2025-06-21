@@ -1,0 +1,21 @@
+
+services:
+  mariadb:
+    image: mariadb
+    environment:
+      - MARIADB_ROOT_PASSWORD=test
+      - MARIADB_DATABASE=test
+      - MARIADB_USER=test
+      - MARIADB_PASSWORD=test
+    healthcheck:
+      test: mariadb -utest -ptest test -e "select 1"
+      interval: 3s
+      timeout: 60s
+      retries: 5
+      start_period: 10s
+      start_interval: 3s
+  mariatest:
+    image: maria-test-bazel
+    depends_on:
+      mariadb:
+        condition: service_healthy
